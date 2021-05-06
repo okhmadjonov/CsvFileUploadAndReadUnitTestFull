@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EmployeesApp.Domain.Models.Employee>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "EmployeeApp";
+}
+
+<div class="container">
+    <h1 class="display-4 text-center">Welcome</h1>
+    <form onsubmit="event.preventDefault(); uploadCsvFile()">
+        <div class="form-group">
+            <label for="fileUpload">CSV file</label>
+            <input type="file" id="fileUpload" class="form-control" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Import</button>
+    </form>
+</div>
+
+<div class="container-fluid table-responsive mt-5">
+    <h5>Click on a row to edit</h5>
+    <table class="table table-hover" id="employeeTable">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Payroll Number</th>
+                <th scope="col">Forenames</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">Address2</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">EMail Home</th>
+                <th scope="col">Start Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr data-id="@emp.Id">
+                    <td></td>
+                    <td>@emp.PayrollNumber</td>
+                    <td>@emp.ForeNames</td>
+                    <td>@emp.Surname</td>
+                    <td>@emp.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                    <td>@emp.Telephone</td>
+                    <td>@emp.Mobile</td>
+                    <td>@emp.Address</td>
+                    <td>@emp.Address2</td>
+                    <td>@emp.Postcode</td>
+                    <td>@emp.EmailHome</td>
+                    <td>@emp.StartDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit employee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" asp-action="EditEmployee">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/js/index.js"></script>
+}
