@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesApp.Domain", "Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesApp.Application", "EmployeesApp.Application\EmployeesApp.Application.csproj", "{E5B54FF0-ED8F-47B5-8D82-0743A172F12E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesApp.UnitTests", "EmployeesApp.UnitTests\EmployeesApp.UnitTests.csproj", "{B44BBFE4-A13D-4E75-9CD7-43299D1E4B87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesApp.UnitTests", "EmployeesApp.UnitTests\EmployeesApp.UnitTests.csproj", "{B44BBFE4-A13D-4E75-9CD7-43299D1E4B87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
